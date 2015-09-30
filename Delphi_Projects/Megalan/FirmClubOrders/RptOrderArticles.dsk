@@ -11,23 +11,23 @@ File_8=SourceModule,'D:\R&D\Libs\D7\DevExpress VCL\ExpressPivotGrid\Sources\cxPi
 File_9=SourceModule,'D:\R&D\Libs\D7\DevExpress VCL\ExpressLibrary\Sources\cxClasses.pas',0,1,2487,1,36,0,0
 
 [Modules]
-Module0=D:\Delphi7Projects\Megalan\FirmClubOrders\RptOrderArticlesFUnit.pas
-Module1=D:\Delphi7Projects\Megalan\FirmClubOrders\FrameRptOrderArticlesUnit.pas
-Module2=D:\Delphi7Projects\Megalan\FirmClubOrders\RptOrderArticles.dpr
+Module0=D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\RptOrderArticlesFUnit.pas
+Module1=D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\FrameRptOrderArticlesUnit.pas
+Module2=D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\RptOrderArticles.dpr
 Count=3
 EditWindowCount=1
 
-[D:\Delphi7Projects\Megalan\FirmClubOrders\RptOrderArticlesFUnit.pas]
+[D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\RptOrderArticlesFUnit.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[D:\Delphi7Projects\Megalan\FirmClubOrders\FrameRptOrderArticlesUnit.pas]
+[D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\FrameRptOrderArticlesUnit.pas]
 ModuleType=SourceModule
 FormState=1
 FormOnTop=0
 
-[D:\Delphi7Projects\Megalan\FirmClubOrders\RptOrderArticles.dpr]
+[D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\RptOrderArticles.dpr]
 ModuleType=SourceModule
 FormState=0
 FormOnTop=0
@@ -38,7 +38,7 @@ FormOnTop=0
 
 [EditWindow0]
 ViewCount=3
-CurrentView=0
+CurrentView=2
 View0=0
 View1=1
 View2=2
@@ -59,29 +59,29 @@ LeftPanelSize=140
 LeftPanelClients=CodeExplorer@EditWindow0
 LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
 RightPanelSize=0
-BottomPanelSize=0
+BottomPanelSize=116
 BottomPanelClients=MessageView@EditWindow0
-BottomPanelData=00000400010000000B0000004D6573736167655669657700000000000000000000000000000000000100000000000000000B0000004D65737361676556696577FFFFFFFF
+BottomPanelData=000004000000000000000000000000000000000000000000000100000000000000000B0000004D65737361676556696577FFFFFFFF
 
 [View0]
-Module=D:\Delphi7Projects\Megalan\FirmClubOrders\RptOrderArticlesFUnit.pas
-CursorX=56
-CursorY=18
-TopLine=1
-LeftCol=1
-
-[View1]
-Module=D:\Delphi7Projects\Megalan\FirmClubOrders\RptOrderArticles.dpr
+Module=D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\RptOrderArticles.dpr
 CursorX=1
 CursorY=1
 TopLine=1
 LeftCol=1
 
+[View1]
+Module=D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\FrameRptOrderArticlesUnit.pas
+CursorX=7
+CursorY=67
+TopLine=53
+LeftCol=1
+
 [View2]
-Module=D:\Delphi7Projects\Megalan\FirmClubOrders\FrameRptOrderArticlesUnit.pas
-CursorX=51
-CursorY=426
-TopLine=13
+Module=D:\GitHub\Delphi_Projects\Megalan\FirmClubOrders\RptOrderArticlesFUnit.pas
+CursorX=1
+CursorY=1
+TopLine=7
 LeftCol=1
 
 [Watches]
@@ -211,18 +211,18 @@ State=0
 Left=0
 Top=12
 Width=140
-Height=791
+Height=672
 MaxLeft=-1
 MaxTop=-1
 ClientWidth=140
-ClientHeight=791
+ClientHeight=672
 TBDockHeight=305
 LRDockWidth=140
 Dockable=1
 
 [MessageView@EditWindow0]
 Create=1
-Visible=0
+Visible=1
 State=0
 Left=12
 Top=0

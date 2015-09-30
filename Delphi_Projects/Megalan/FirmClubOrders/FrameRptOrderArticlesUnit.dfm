@@ -1,8 +1,8 @@
 object FrameRptOrderArticlesF: TFrameRptOrderArticlesF
   Left = 0
   Top = 0
-  Width = 918
-  Height = 446
+  Width = 435
+  Height = 266
   Align = alClient
   TabOrder = 0
   object GroupBoxGridItems: TGroupBox
@@ -201,42 +201,6 @@ object FrameRptOrderArticlesF: TFrameRptOrderArticlesF
       Height = 17
       Width = 50
       AnchorX = 54
-    end
-    object edStartDate: TcxObjectDateEdit
-      Left = 53
-      Top = 15
-      EditValue = 0d
-      Properties.DateButtons = [btnNow, btnToday]
-      Properties.ImmediatePost = True
-      Properties.Kind = ckDateTime
-      Properties.ReadOnly = False
-      Style.TransparentBorder = True
-      Style.ButtonStyle = btsOffice11
-      StyleFocused.Color = clInfoBk
-      TabOrder = 2
-      Value = 0d
-      ObjectProperty = 'StartDate'
-      PropUpdateMethod = oumOnValueChange
-      ReadOnly = False
-      Width = 129
-    end
-    object edEndDate: TcxObjectDateEdit
-      Left = 53
-      Top = 37
-      EditValue = 0d
-      Properties.DateButtons = [btnNow, btnToday]
-      Properties.ImmediatePost = True
-      Properties.Kind = ckDateTime
-      Properties.ReadOnly = False
-      Style.TransparentBorder = True
-      Style.ButtonStyle = btsOffice11
-      StyleFocused.Color = clInfoBk
-      TabOrder = 3
-      Value = 0d
-      ObjectProperty = 'EndDate'
-      PropUpdateMethod = oumOnValueChange
-      ReadOnly = False
-      Width = 129
     end
   end
   object dbMegalanCafeDev: TmySQLDatabase
@@ -851,7 +815,6 @@ object FrameRptOrderArticlesF: TFrameRptOrderArticlesF
     object PrinterG1: TdxGridReportLink
       Active = True
       Component = G1
-      PageNumberFormat = pnfNumeral
       PrinterPage.DMPaper = 9
       PrinterPage.Footer = 6350
       PrinterPage.GrayShading = True
@@ -875,8 +838,7 @@ object FrameRptOrderArticlesF: TFrameRptOrderArticlesF
       PrinterPage.PageSize.Y = 297000
       PrinterPage._dxMeasurementUnits_ = 0
       PrinterPage._dxLastMU_ = 2
-      ReportDocument.CreationDate = 42276.637247210650000000
-      AssignedFormatValues = [fvDate, fvTime, fvPageNumber]
+      ReportDocument.CreationDate = 42277.646388067130000000
       OptionsOnEveryPage.Footers = False
       OptionsOnEveryPage.Headers = False
       OptionsOnEveryPage.FilterBar = False

@@ -63,8 +63,8 @@ type
     GB1                   : TcxGroupBox;
     cxLabel1              : TcxLabel;
     cxLabel2              : TcxLabel;
-    edStartDate           : TcxObjectDateEdit;
-    edEndDate             : TcxObjectDateEdit;
+    //edStartDate           : TcxObjectDateEdit;
+    //edEndDate             : TcxObjectDateEdit;
     cxHintStyleController1: TcxHintStyleController;
 
     constructor Create(AOwner: TComponent); override;
