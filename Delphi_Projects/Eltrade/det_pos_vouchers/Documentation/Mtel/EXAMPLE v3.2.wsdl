@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions 
+xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:tns="http://www.w3.org/schemas" 
+xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Untitled" 
+targetNamespace="http://www.w3.org/schemas">
+
+    <wsdl:types>
+        <s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.w3.org/schemas" elementFormDefault="qualified" attributeFormDefault="unqualified">
+            <s:simpleType name="SessionIDType">
+                <s:restriction base="s:string">
+                    <s:minLength value="4"/>
+                    <s:maxLength value="10"/>
+                    <s:pattern value="[A-Z]{3}[A-Za-z0-9]*"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="MSISDNType">
+                <s:restriction base="s:string">
+                    <s:minLength value="6"/>
+                    <s:maxLength value="20"/>
+                    <s:pattern value="359[1-9][0-9]*"/>
+                </s:restriction>
+            </s:simpleType>  
+            <s:simpleType name="BillingAccountType">
+                <s:restriction base="s:string">
+                    <s:minLength value="5"/>
+                    <s:maxLength value="11"/>
+                    <s:pattern value="[0-9]*"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="IdentityTypeType">
+                <s:restriction base="s:string">
+                    <s:enumeration value="EGN"/>
+                    <s:enumeration value="BST"/>
+                    <s:enumeration value="PAS"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="IdentityIdType">
+                <s:restriction base="s:string">
+                    <s:minLength value="9"/>
+                    <s:maxLength value="13"/>
+                    <s:pattern value="[0-9]*"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="StatusType">
+                <s:restriction base="s:string">
+                    <s:minLength value="1"/>
+                    <s:maxLength value="2"/>
+                    <s:pattern value="[0-9]*"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="ReturnType">
+                <s:restriction base="s:string">
+                    <s:minLength value="1"/>
+                    <s:maxLength value="2"/>
+                    <s:pattern value="[0-9]*"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="SearchTypeType">
+                <s:restriction base="s:string">
+                    <s:minLength value="1"/>
+                    <s:maxLength value="1"/>
+                    <s:pattern value="[0-9]"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="MoneyType">
+                <s:restriction base="s:string">
+                    <s:minLength value="4"/>
+                    <s:maxLength value="10"/>
+                    <s:pattern value="[0-9]*.[0-9][0-9]"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="TimestampType">
+                  <s:restriction base="s:string">
+                    <s:minLength value="0"/>
+                    <s:maxLength value="17"/>
+                    <s:pattern value="20[0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9][0-9]"/>
+                </s:restriction>
+            </s:simpleType>
+            <s:simpleType name="CustNameType">
+                <s:restriction base="s:string">
+                    <s:pattern value="[A-Za-z]*"/>
+                </s:restriction>
+            </s:simpleType>
+
+            <s:element name="BAList">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="unbounded" ref="tns:BAListItem"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="BAListItem">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element maxOccurs="1" minOccurs="1" name="BillingAccount" type="tns:BillingAccountType"/>
+                        <s:element maxOccurs="1" minOccurs="1" name="Due" type="tns:MoneyType"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="debtDate" type="tns:TimestampType"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="CustName" type="tns:CustNameType"/>
+                        <s:element maxOccurs="1" minOccurs="0" name="MSISDN" type="tns:MSISDNType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="checkInvoice">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element name="SessionID" type="tns:SessionIDType"/>
+                        <s:element maxOccurs="1"  name="MSISDN" type="tns:MSISDNType"/>
+                        <s:element maxOccurs="1"  name="BillingAccount" type="tns:BillingAccountType"/>
+                        <s:element maxOccurs="1"  name="IdentityType" type="tns:IdentityTypeType"/>
+                        <s:element maxOccurs="1"  name="SearchType" type="tns:SearchTypeType"/>
+                        <s:element maxOccurs="1"  name="IdentityId" type="tns:IdentityIdType"/>
+                        <s:element maxOccurs="1"  name="Timestamp" type="tns:TimestampType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="checkInvoiceResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element name="SessionID"  type="tns:SessionIDType"/>
+                        <s:element name="Timestamp"  type="tns:TimestampType"/>
+                        <s:element name="Status"  type="tns:StatusType"/>
+                        <s:element maxOccurs="1" minOccurs="1" ref="tns:BAList" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="payPostPaid">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element  name="SessionID" type="tns:SessionIDType"/>
+                        <s:element  name="BillingAccount"  type="tns:BillingAccountType"/>
+                        <s:element  name="Amount" type="tns:MoneyType"/>
+                        <s:element  name="Timestamp"  type="tns:TimestampType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="payPostPaidResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element name="SessionID"  type="tns:SessionIDType"/>
+                        <s:element name="Return" type="tns:ReturnType"/>
+			<s:element name="Timestamp" type="tns:TimestampType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="checkPrePaid">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element name="SessionID" type="tns:SessionIDType"/>
+                        <s:element name="MSISDN"  type="tns:MSISDNType"/>
+			<s:element name="Timestamp" type="tns:TimestampType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="checkPrePaidResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element name="SessionID"  type="tns:SessionIDType"/>
+                        <s:element name="Status"  type="tns:StatusType"/>
+                        <s:element name="Timestamp" type="tns:TimestampType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="payPrePaid">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element name="SessionID" type="tns:SessionIDType"/>
+                        <s:element name="MSISDN"  type="tns:MSISDNType"/>
+                        <s:element name="Amount" type="tns:MoneyType"/>
+                        <s:element name="Timestamp" type="tns:TimestampType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="payPrePaidResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element  name="SessionID"  type="tns:SessionIDType"/>
+                        <s:element minOccurs="0" name="Return" type="tns:ReturnType"/>
+			<s:element name="Timestamp" type="tns:TimestampType"/>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+          <s:element name="checkPaymentRequest">
+             <s:complexType>
+                  <s:sequence>
+                      <s:element name="SessionID" type="tns:SessionIDType"/>
+                      <s:element name="Timestamp" type="tns:TimestampType"/>
+                  </s:sequence>
+              </s:complexType>
+          </s:element>
+          <s:element name="checkPaymentResponse">
+              <s:complexType>
+                  <s:sequence>
+                    <s:element  name="SessionID"  type="tns:SessionIDType"/>
+                    <s:element minOccurs="0" name="PrevSentResponse" type="tns:ReturnType"/>
+                    <s:element minOccurs="0" name="Return" type="tns:ReturnType"/>
+		    <s:element name="Timestamp" type="tns:TimestampType"/>
+                  </s:sequence>
+              </s:complexType>
+          </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="checkInvoiceIn">
+        <wsdl:part name="parameters" element="tns:checkInvoice"/>
+    </wsdl:message>
+    <wsdl:message name="checkInvoiceOut">
+        <wsdl:part name="parameters" element="tns:checkInvoiceResponse"/>
+    </wsdl:message>
+    <wsdl:message name="payPostPaidIn">
+        <wsdl:part name="parameters" element="tns:payPostPaid"/>
+    </wsdl:message>
+    <wsdl:message name="payPostPaidOut">
+        <wsdl:part name="parameters" element="tns:payPostPaidResponse"/>
+    </wsdl:message>
+    <wsdl:message name="checkPrePaidIn">
+        <wsdl:part name="parameters" element="tns:checkPrePaid"/>
+    </wsdl:message>
+    <wsdl:message name="checkPrePaidOut">
+        <wsdl:part name="parameters" element="tns:checkPrePaidResponse"/>
+    </wsdl:message>
+    <wsdl:message name="payPrePaidIn">
+        <wsdl:part name="parameters" element="tns:payPrePaid"/>
+    </wsdl:message>
+    <wsdl:message name="payPrePaidOut">
+        <wsdl:part name="parameters" element="tns:payPrePaidResponse"/>
+    </wsdl:message>  
+   <wsdl:message name="checkPaymentIn">
+       <wsdl:part name="parameters" element="tns:checkPaymentRequest"/>
+   </wsdl:message>
+   <wsdl:message name="checkPaymentOut">
+       <wsdl:part name="parameters" element="tns:checkPaymentResponse"/>
+   </wsdl:message>  
+
+   <wsdl:portType name="Dealers_EXAMPLEPortType">
+        <wsdl:operation name="checkPrePaid">
+            <wsdl:input message="tns:checkPrePaidIn" />
+            <wsdl:output message="tns:checkPrePaidOut" />
+        </wsdl:operation>
+        <wsdl:operation name="payPrePaid">
+            <wsdl:input message="tns:payPrePaidIn" />
+            <wsdl:output message="tns:payPrePaidOut" />
+        </wsdl:operation>
+        <wsdl:operation name="checkInvoice">
+            <wsdl:input message="tns:checkInvoiceIn" />
+            <wsdl:output message="tns:checkInvoiceOut" />
+        </wsdl:operation>
+        <wsdl:operation name="payPostPaid">
+            <wsdl:input message="tns:payPostPaidIn" />
+            <wsdl:output message="tns:payPostPaidOut" />
+        </wsdl:operation>
+      <wsdl:operation name="checkPaymentRequest">
+         <wsdl:input message="tns:checkPaymentIn" />
+         <wsdl:output message="tns:checkPaymentOut" />
+      </wsdl:operation>
+    </wsdl:portType>
+
+   <wsdl:binding name="Dealers_EXAMPLE" type="tns:Dealers_EXAMPLEPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+     <wsdl:operation name="checkInvoice">
+        <soap:operation soapAction="urn:Dealers_Interface/checkInvoice" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+     <wsdl:operation name="checkPrePaid">
+        <soap:operation soapAction="urn:Dealers_Interface/checkPrePaid" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+     <wsdl:operation name="payPostPaid">
+        <soap:operation soapAction="urn:Dealers_Interface/payPostPaid" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+     <wsdl:operation name="payPrePaid">
+        <soap:operation soapAction="urn:Dealers_Interface/payPrePaid" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="checkPaymentRequest">
+        <soap:operation soapAction="urn:Dealers_Interface/checkPaymentRequest" style="document"/>
+         <wsdl:input>
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output>
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+    </wsdl:binding> 
+
+   <wsdl:service name="Dealers_Service">
+     <wsdl:port binding="tns:Dealers_EXAMPLE" name="Dealers_EXAMPLE_Interface">
+        <soap:address location="http://10.16.124.99:1100/Dealers_ComService" />
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>

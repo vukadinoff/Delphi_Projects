@@ -1,0 +1,15 @@
+program MtelSimRechargeTest;
+
+uses
+  Forms,
+  MtelSimRMainUnit in 'MtelSimRMainUnit.pas' {MtelMainForm},
+  TcpClientUnit in 'TcpClientUnit.pas',
+  MtelSimRchUnit in 'MtelSimRchUnit.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TMtelMainForm, MtelMainForm);
+  Application.Run;
+end.

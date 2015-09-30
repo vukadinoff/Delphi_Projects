@@ -1,0 +1,51 @@
+{*******************************************************}
+{                                                       }
+{         Delphi VCL Extensions (RX)                    }
+{                                                       }
+{         Copyright (c) 1998 Master-Bank                }
+{                                                       }
+{*******************************************************}
+
+package RxDB6;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS OFF}
+{$BOOLEVAL ON}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS OFF}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS OFF}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO OFF}
+{$SAFEDIVIDE ON}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS ON}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'RX Library DB Component Package'}
+{$RUNONLY}
+{$IMPLICITBUILD ON}
+
+requires
+  vcldb,
+  RxCtl6;
+
+contains
+  RxDBCtrl in 'RxDBCtrl.pas',
+  RxLookup in 'RxLookup.pas',
+  RxLogin in 'RxLogin.pas',
+  RxDConst in 'RxDConst.pas',
+  DBUtils in 'DBUtils.pas',
+  RxDBComb in 'RxDBComb.pas',
+  DBRichEd in 'DBRichEd.pas',
+  RxMemDS in 'RxMemDS.pas';
+
+end.
